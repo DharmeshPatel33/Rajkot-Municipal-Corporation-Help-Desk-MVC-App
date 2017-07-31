@@ -1,0 +1,58 @@
+﻿@model IEnumerable<RMCHelpDesk.Models.Complain>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Complain Details
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Officer.Name)
+        </th>
+        <th>    
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            Complain Status
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <div class="text-danger">
+                @Html.DisplayFor(modelItem => item.ComplainRegistratation.Problem)
+            </div> (@item.ComplainRegistratation.Date.ToShortDateString())
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Officer.Name)
+        </td>
+        <td>
+            @item.Date.ToShortDateString()
+        </td>
+        <td>
+            @item.ComplainRegistratation.Status
+        </td>
+        <td>
+            @Html.ActionLink("Solve", "Solve", "SolveComplain", new { id = item.ID },null) |
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

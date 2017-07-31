@@ -1,0 +1,44 @@
+﻿@model RMCHelpDesk.Models.Complain
+@{
+    ViewBag.Title = "Solve";
+}
+
+<h2>Solve Complain</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <div class="form-group">
+          Complain
+            <div class="col-md-10 text-danger">
+                
+                @Model.ComplainRegistratation.Problem
+
+            </div>
+            <div class="form-group">
+                Department Name
+                <div class="col-md-10">
+
+                    @Model.Department.Name
+
+                </div>
+            </div>
+            <div class="form-group">
+                Office Name
+                <div class="col-md-10">
+
+                    @Model.Officer.Name
+
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Solve"  class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+        </div>
+}

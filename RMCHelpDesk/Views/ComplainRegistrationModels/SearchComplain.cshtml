@@ -1,0 +1,52 @@
+﻿@model RMCHelpDesk.Models.SearchComplainViewModel
+@{
+    ViewBag.Title = "Search Complain";
+}
+
+<h2>Complain Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Ticket ID
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ticket_ID)
+        </dd>
+
+        <dt>
+            Complain 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Problem)
+        </dd>
+
+        <dt>
+           Department Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department.Name)
+        </dd>
+
+        <dt>
+           Status
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            Date
+
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+    </dl>
+</div>
